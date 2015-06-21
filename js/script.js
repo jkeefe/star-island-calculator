@@ -113,6 +113,16 @@ function updateValues(){
     var infant_due_island = infant_room_fee;
     $("#infant-row .col-g").html("$" + numberWithCommas(infant_due_island));
     
+    ///// TOTALS
+    
+    var total_costs = total_adult_cost + total_teen_cost + total_child_cost + total_infant_cost;
+    $("#totals-row .col-e").html("$" + numberWithCommas(total_costs));
+    
+    var total_due_registration = adult_due_registration + teen_due_registration + child_due_registration + infant_due_registration;
+    $("#totals-row .col-f").html("$" + numberWithCommas(total_due_registration));
+    
+    var total_due_island = adult_due_island + teen_due_island + child_due_island + infant_due_island;
+    $("#totals-row .col-g").html("$" + numberWithCommas(total_due_island));
     
 }
 

@@ -24,6 +24,7 @@
 
 
   <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/reset.css?v=2">
   <link rel="stylesheet" href="css/style.css?v=2">
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
@@ -38,28 +39,27 @@
 
   <div id="container">
     <header>
+		
+	<h1>Unofficial LOAS Cost Calculator</h1>
+	<h2>by John Keefe</h2>
+	<p>
+		The <a href="http://lifeonastar.org/" title="Life On A Star Conferences">Life on a Star</a> conferences are wonderful weeks of relaxation and learning. But calculating the total costs of going, and the amount due on the island, can be a challenge. I decided to turn that challenge into a coding project. The below is based on 2015 <a href="http://lifeonastar.org/forms.htm" title="Star Island Form, Registration &amp; Policies">values from this page</a>. It doesn't include partial-weeks or charges folks might rack up on the island. I found it super useful, but it's not official, could be out of date and/or contain errors. Please let me know at john (at) johnkeefe (dot) net if you find any!
+	</p>
 
     </header>
     <div id="main" role="main">
 	
-		 <style type="text/css">
-		.tg  {border-collapse:collapse;border-spacing:0;}
-		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 16px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
-		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 16px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
-		.tg .tg-s6z2{text-align:center}
-		.tg .col
-		@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
 		<div class="tg-wrap"><table class="tg">
-		  <tr>
+		  <tr id = "title-row" >
 		    <th class="tg-s6z2 col-a"></th>
 		    <th class="tg-s6z2 col-b">People</th>
 		    <th class="tg-s6z2 col-c">Conference Fee</th>
-		    <th class="tg-s6z2 col-d">Lodging for Entire Conference (7 Days)</th>
+		    <th class="tg-s6z2 col-d">Lodging for Entire Conference</th>
 		    <th class="tg-s6z2 col-e">Combined LOAS II costs</th>
-		    <th class="tg-s6z2 col-d">Amount Due at Registration</th>
-		    <th class="tg-s6z2 col-e">Amount Due On Island</th>
+		    <th class="tg-s6z2 col-f">Amount Due at Registration</th>
+		    <th class="tg-s6z2 col-g">Amount Due On Island</th>
 		  </tr>
-		  <tr id="adult-row">
+		  <tr id="adult-row" class ="values">
  		    <th class="tg-s6z2 col-a">Adults</th>
 		    <th class="tg-s6z2 col-b">
 				<select id="adults">
@@ -82,23 +82,23 @@
 		    <th class="tg-s6z2 col-f"></th>
 		    <th class="tg-s6z2 col-g"></th>
 		  </tr>
-		  <tr id="adult-description">
+		  <tr class="description">
  		    <th class="tg-s6z2 col-a">18 +</th>
 		    <th class="tg-s6z2 col-b"></th>
 		    <th class="tg-s6z2 col-c">$100 / adult</th>
 		    <th class="tg-s6z2 col-d">
 				<select id="room-rate">
-					<option value="885" selected="selected">$885 per adult in a shared hotel room</option>
-					<option value="1125">$1,125 per adult in a single hotel room</option>
-					<option value="1090">$1,090 per adult in a shared motel room</option>
-					<option value="1495">$1,495 per adult in a single motel room</option>
+					<option value="885" selected="selected">$885 per adult in shared hotel room</option>
+					<option value="1125">$1,125 per adult in single hotel room</option>
+					<option value="1090">$1,090 per adult in shared motel room</option>
+					<option value="1495">$1,495 per adult in single motel room</option>
 				</select>
 			</th>				
 		    <th class="tg-s6z2 col-e"></th>
 		    <th class="tg-s6z2 col-f">Conference fees + $200 lodging deposit per adult</th>
 		    <th class="tg-s6z2 col-g">Balance of the lodging fees</th>
 		  </tr>
-		  <tr id="teen-row">
+		  <tr id="teen-row" class ="values">
  		    <th class="tg-s6z2 col-a">Teens</th>
 		    <th class="tg-s6z2 col-b">
 		    	<select id="teens">
@@ -119,7 +119,7 @@
 		    <th class="tg-s6z2 col-f"></th>
 		    <th class="tg-s6z2 col-g"></th>
 		  </tr>
-		  <tr>
+		  <tr class="description">
  		    <th class="tg-s6z2 col-a">12-17</th>
 		    <th class="tg-s6z2 col-b"></th>
 		    <th class="tg-s6z2 col-c">$75 / teen</th>
@@ -128,7 +128,7 @@
 		    <th class="tg-s6z2 col-f">Conference fees + $200 lodging deposit per teen</th>
 		    <th class="tg-s6z2 col-g">Balance of the lodging fees</th>
 		  </tr>
-		  <tr id="child-row">
+		  <tr id="child-row" class ="values">
  		    <th class="tg-s6z2 col-a">Children</th>
 		    <th class="tg-s6z2 col-b">
 		    	<select id="children">
@@ -149,7 +149,7 @@
 		    <th class="tg-s6z2 col-f"></th>
 		    <th class="tg-s6z2 col-g"></th>
 		  </tr>
-		  <tr>
+		  <tr class="description" class ="values">
  		    <th class="tg-s6z2 col-a">6-11</th>
 		    <th class="tg-s6z2 col-b"></th>
 		    <th class="tg-s6z2 col-c">$75 / teen</th>
@@ -158,7 +158,7 @@
 		    <th class="tg-s6z2 col-f">Conference fees + $200 lodging deposit per teen</th>
 		    <th class="tg-s6z2 col-g">Balance of the lodging fees</th>
 		  </tr>
-		  <tr id="infant-row">
+		  <tr id="infant-row" class ="values">
  		    <th class="tg-s6z2 col-a">Infant / Toddler</th>
 		    <th class="tg-s6z2 col-b">
 				<select id="infants">
@@ -179,7 +179,7 @@
 		    <th class="tg-s6z2 col-f"></th>
 		    <th class="tg-s6z2 col-g"></th>
 		  </tr>
-		  <tr>
+		  <tr class="description">
  		    <th class="tg-s6z2 col-a">0-5</th>
 		    <th class="tg-s6z2 col-b"></th>
 		    <th class="tg-s6z2 col-c">$75 / teen</th>
@@ -188,52 +188,16 @@
 		    <th class="tg-s6z2 col-f">Conference fees only</th>
 		    <th class="tg-s6z2 col-g">Balance of the lodging fees</th>
 		  </tr>
-		  <tr>
+		  <tr class ="values">
  		    <th class="tg-s6z2 col-a"></th>
 		    <th class="tg-s6z2 col-b"></th>
 		    <th class="tg-s6z2 col-c"></th>
 		    <th class="tg-s6z2 col-d"></th>
-		    <th class="tg-s6z2 col-e"></th>
-		    <th class="tg-s6z2 col-f"></th>
-		    <th class="tg-s6z2 col-g"></th>
+		    <th class="tg-s6z2 col-e"><strong>Total LOAS II Costs</strong></th>
+		    <th class="tg-s6z2 col-f"><strong>Total Due Upon Registration</strong></th>
+		    <th class="tg-s6z2 col-g"><strong>Total Due On Island</strong></th>
 		  </tr>
-		  <tr>
- 		    <th class="tg-s6z2 col-a"></th>
-		    <th class="tg-s6z2 col-b"></th>
-		    <th class="tg-s6z2 col-c"></th>
-		    <th class="tg-s6z2 col-d"></th>
-		    <th class="tg-s6z2 col-e"></th>
-		    <th class="tg-s6z2 col-f"></th>
-		    <th class="tg-s6z2 col-g"></th>
-		  </tr>
-		  <tr>
- 		    <th class="tg-s6z2 col-a"></th>
-		    <th class="tg-s6z2 col-b"></th>
-		    <th class="tg-s6z2 col-c"></th>
-		    <th class="tg-s6z2 col-d"></th>
-		    <th class="tg-s6z2 col-e"></th>
-		    <th class="tg-s6z2 col-f"></th>
-		    <th class="tg-s6z2 col-g"></th>
-		  </tr>
-		  <tr>
- 		    <th class="tg-s6z2 col-a"></th>
-		    <th class="tg-s6z2 col-b"></th>
-		    <th class="tg-s6z2 col-c"></th>
-		    <th class="tg-s6z2 col-d"></th>
-		    <th class="tg-s6z2 col-e"></th>
-		    <th class="tg-s6z2 col-f"></th>
-		    <th class="tg-s6z2 col-g"></th>
-		  </tr>
-		  <tr>
- 		    <th class="tg-s6z2 col-a"></th>
-		    <th class="tg-s6z2 col-b"></th>
-		    <th class="tg-s6z2 col-c"></th>
-		    <th class="tg-s6z2 col-d"></th>
-		    <th class="tg-s6z2 col-e"></th>
-		    <th class="tg-s6z2 col-f"></th>
-		    <th class="tg-s6z2 col-g"></th>
-		  </tr>
-		  <tr>
+		  <tr id="totals-row">
  		    <th class="tg-s6z2 col-a"></th>
 		    <th class="tg-s6z2 col-b"></th>
 		    <th class="tg-s6z2 col-c"></th>

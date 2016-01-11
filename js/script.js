@@ -6,7 +6,7 @@ var teen_room_rate = 640;
 var child_room_rate = 462;
 var infant_room_rate = 0;
 var lodging_deposit = 200;
-var parking_conference_rate = 80;
+var parking_conference_rate = 84;
 
 // on form load, update the values to the defaults
 

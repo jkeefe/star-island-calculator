@@ -93,7 +93,7 @@ function updateValues(){
     
     ///// TOTALS
     
-    var total_costs = total_adult_cost + total_teen_cost + total_child_cost + total_infant_cost;
+    var total_costs = total_adult_cost + total_teen_cost + total_child_cost + total_infant_cost + parking;
     $("#total-costs").html("$" + numberWithCommas(total_costs));
     
     var total_due_registration = adult_due_registration + teen_due_registration + child_due_registration + infant_due_registration;
